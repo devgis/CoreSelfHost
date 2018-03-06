@@ -1,0 +1,5 @@
+{
+
+"server.urls":"http://localhost:1001;http://localhost:1002;http://*:1003"
+
+}
