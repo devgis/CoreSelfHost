@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <RootNamespace>DEVGIS.CustomMiddleware</RootNamespace>
+    <Authors>DEVGIS</Authors>
+    <Company>DEVGIS</Company>
+    <Description>DEVGIS</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.0.0" />
+    <PackageReference Include="System.ComponentModel" Version="4.3.0" />
+    <PackageReference Include="System.Reflection.TypeExtensions" Version="4.4.0" />
+    <PackageReference Include="System.ServiceModel.Primitives" Version="4.4.0" />
+  </ItemGroup>
+
+</Project>

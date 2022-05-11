@@ -8,6 +8,16 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
+using CoreSelfHost.Services;
+
+using DEVGIS.CustomMiddleware;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+
+using System.ServiceModel;
 
 namespace CoreSelfHost
 {
@@ -32,14 +42,16 @@ namespace CoreSelfHost
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddOptions();
+            //services.AddOptions();
+            services.AddScoped<CalculatorService>();
             //services.Configure<MyConfig>(Configuration.GetSection("MySets"));
         }
            
         public void Configure(IApplicationBuilder app)
         {
             app.UseMvc();
-            app.Run(context => Task.Run(() => { context.Response.ContentType = "text/html; charset=utf-8"; }));
+            //app.Run(context => Task.Run(() => { context.Response.ContentType = "text/html; charset=utf-8"; }));
+            app.UseSOAPMiddleware<CalculatorService>("/CalculatorService.svc", new BasicHttpBinding());
         } 
     }
 }
